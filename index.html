@@ -1,13 +1,20 @@
 ---
-layout: default
-title: Your New Jekyll Site
+layout: home
+title: Posts Recentes
 ---
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
+{% for post in site.posts %}
+  <section class="post">
+    <header class="entry-header">
+      <img class="entry-avatar" alt="{{ post.author }}" height="52" width="52" src="{{ site.gravatar }}">
+      <h2 class="entry-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      <p class="entry-meta">
+       Criado em <a class="entry-date" href="#">{{ post.date | date_to_string }}</a> | Por <a class="entry-author" href="#">{{ post.author }}</a></a>
+      </p>
+    </header>
+    <div class="entry-description">
+      <p>{{ post.content | strip_html | strip_newlines | truncate: 240 }}</p>
+    </div>
+  </section>
+{% endfor %}
+

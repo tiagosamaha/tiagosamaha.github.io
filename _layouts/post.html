@@ -1,9 +1,34 @@
----
-layout: default
----
-<h2>{{ page.title }}</h2>
-<p class="meta">{{ page.date | date_to_string }}</p>
+{% include header.html %}
 
-<div class="post">
-{{ content }}
+<img src="/assets/florian-klauer.jpg" class="img-responsive">
+
+<section class="post">
+  <header class="entry-header">
+	<img class="entry-avatar" alt="{{ page.author }}" height="52" width="52" src="{{ site.gravatar }}">
+	<h2 class="entry-title"><a href="{{ page.url }}">{{ page.title }}</a></h2>
+	<p class="entry-meta">
+	  Criado em <a class="entry-date" href="#">{{ page.date | date_to_string }}</a> | Por <a class="entry-author" href="#">{{ page.author }}</a>
+	</p>
+  </header>
+  <div class="entry-description">
+	{{ content }}
+  </div>
+</section>
+
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+	  var disqus_shortname = 'von-bootstrap'; // required: replace example with your forum shortname
+
+	  /*** Don't edit below this line ***/
+	  (function() {
+		  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
+
+{% include footer.html %}
