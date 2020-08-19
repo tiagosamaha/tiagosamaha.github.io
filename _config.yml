@@ -1,4 +1,4 @@
 name: Tiago Samaha
-markdown: redcarpet
+markdown: kramdown
 pygments: true
 gravatar: http://www.gravatar.com/avatar/68016de433049e837e43a66bbeaa6895.png
